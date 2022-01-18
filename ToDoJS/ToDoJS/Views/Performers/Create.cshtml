@@ -1,0 +1,21 @@
+﻿@using ToDoJS.Models
+@model Performer
+
+@{
+    Layout = null;
+    var controllerName = "Performers";
+    var actionName = "Create";
+    var enctype = "multipart/form-data";
+}
+
+
+
+<h3>Исполнитель</h3>
+
+@using (Html.BeginForm(actionName, controllerName, FormMethod.Post, new { @enctype = enctype }))
+{
+    @Html.EditorForModel()
+
+    <button class="btn btn-primary" onclick="Post('@controllerName','@actionName', '@enctype')">Сохранить</button>
+    @Html.ActionLink("Отменить", "Index", controllerName, null, new { @class = "btn btn-danger" })
+}
